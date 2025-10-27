@@ -15,7 +15,7 @@ void main() {
     // Build the app
     await tester.pumpWidget(const MyApp());
 
-    //Here we assign variables using the type of our widgets and text in our screens folder so we can use them in this test
+    //Here we assign variables using the type of our widgets and text in our screens folder so we can use them in this test.
     final newGameBtnFinder = find.text("New Game");
 
     //We are expecting for the text found in the button on the home screen to say 'New Game'
