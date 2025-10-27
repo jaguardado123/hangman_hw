@@ -5,41 +5,41 @@ class HangmanGame {
   String _correctGuesses = "";
   String _wrongGuesses = "";
 
-  //Constructor starts off with blank strings that we will concatenate during the course of play
+  // Constructor starts off with blank strings that we will concatenate during the course of play.
   HangmanGame(String word) {
     _word = word;
     _correctGuesses = "";
     _wrongGuesses = "";
   }
 
+  //
+  // TODO: Complete the functions below to pass the Unit Tests.
+
   String correctGuesses() {
-    return _correctGuesses;
+    return '';
   }
 
   String wrongGuesses() {
-    return _wrongGuesses;
+    return '';
   }
 
   String word() {
-    return _word;
+    return '';
   }
 
-  bool guess(String letter) {
-    // TODO: Fill this in
-    return true;
+  bool guess(var letter) {
+    return false;
   }
 
   String blanksWithCorrectGuesses() {
-    // TODO: Fill this in
-    return "";
+    return '';
   }
 
   String status() {
-    // TODO: Fill this in
-    return "";
+    return '';
   }
 
-  //when running integration tests always return "banana"
+  // When running integration tests always return "banana".
   static Future<String> getStartingWord(bool areWeInIntegrationTest) async {
     String word;
     final Uri endpoint = Uri.parse("http://randomword.saasbook.info/RandomWord");

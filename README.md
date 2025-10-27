@@ -4,7 +4,7 @@ The purpose of this project is to practice working with Behaviour-Driven Develop
 
 ### Before You Start
 
-Before you start writing any code, remember you will be graded based on your development process and **NOT** the finished outcome. Make sure to read through this README to have a good understanding of how to complete this project. To avoid losing any points, make sure you follow the rules below.
+Before you start writing any code, remember you will be graded based on your development process and **NOT** just the finished outcome. Make sure to read through this README to have a good understanding of how to complete this project. To avoid losing any points, make sure you follow the rules below.
 
 **Rules:**
 
@@ -27,11 +27,20 @@ Upon hearing their request you draft the following user stories.
 
 ### User Stories
 
-- As a player, I should see *x* amount of underscores, so that I know how many letters are in the hidden word.
-- As a player, I should be able to input my letter guess, so that I know if it's correct or incorrect.
-- As a player, I should see my correct and incorrect guesses, so that I can avoid repeating the same letter.
-- As a player, I should not be allowed to input previous guesses, numbers, nor special characters, so that I don't lose a wrong guess.
-- As a player, I should see a win or lose screen towards the end, so that I know if I guessed the word and won or used all my wrong guesses and lost.
+- As a player, I should see a row of dashes equal to the hidden word’s length, so that I know how many letters to guess.
+
+- As a player, I should be able to input a single letter, so that I can progress the game and reveal the hidden word.
+
+- As a player, I should see a list of my incorrect guesses, so that I can avoid repeating the same letter.
+
+- As a player, I should not be allowed to input numbers, special characters, nor previous guesses, so that I don't lose a turn.
+
+- As a player, I should be taken to a lose screen where the hidden word revealed after 7 wrong guesses, so that I know I have lost the game.
+
+- As a player, I should be taken to a win screen after correctly guessing the hidden word, so that I know I have won the game.
+
+- As a player, I should have the option to start a new game after being taken to a win or lose screen, so that I can play again.
+
 
 Using the above user stories, you draft multiple validation sketches and finally the customer agrees to the sketch below.
 
@@ -69,13 +78,13 @@ From the prototypes in the validation phase above you create the following **Acc
 
 - **Given** I am on the Game Screen, **When** I input a single letter ('a'-'z', 'A'-'Z') **And** the letter is in the hidden word **And** I click the "Guess Letter" button, **Then** I should see the letter within the underscores.
 - **Given** I am on the Game Screen **And** I have guessed all letters but one, **When** I input a single letter ('a'-'z', 'A'-'Z') **And** the letter is in the hidden word **And** I click the "Guess Letter" button, **Then** I should be taken to the Win Screen.
-- **Given** I am on the Win Screen, **When** I click the "New Game" button, **Then** should be taken to the Game Screen.
+- **Given** I am on the Win Screen, **When** I click the "New Game" button, **Then** I should be taken to the Game Screen.
 
 <br>
 
 - **Given** I am on the Game Screen, **When** I input a single letter ('a'-'z', 'A'-'Z') **And** the letter is NOT in the hidden word **And** I click the "Guess Letter" button, **Then** I should see the letter amongst my "Wrong Guesses:".
 - **Given** I am on the Game Screen **And** I have used 6 of my wrong guesses, **When** I input a single letter ('a'-'z', 'A'-'Z') **And** the letter is NOT in the hidden word **And** I click the "Guess Letter" button, **Then** I should be taken to the Lose Screen.
-- **Given** I am on the Lose Screen, **When** I click the "New Game" button, **Then** should be taken to the Game Screen.
+- **Given** I am on the Lose Screen, **When** I click the "New Game" button, **Then** I should be taken to the Game Screen.
 </div>
 
 <br>
@@ -95,13 +104,13 @@ After creating your acceptance criteria, you decide to write your unit tests. **
 
 All your game functions will be inside a `HangmanGame` class located in the `lib/models/hangmangame.dart` file.
 
-You create a set of tests in `test\unit_test.dart` to test the following functions.
+You create a set of tests in `test/unit_tests.dart` to test the following functions.
 
 - A `guess()` function, that determines if a letter guess is *accepted* (has not been guessed before) or not by returning `true` or `false` or throws an `ArgumentError` if the guess is invalid.
 - A `status()` function, that determines if the game is ongoing or completed by returning `'play'`, `'win'` or `'lose'`.
 - A `correctGuesses()` function, to help us keep track of our correct guesses by returning them in a string (ex: `'abc'`).
 - A `wrongGuesses()` function, to help us keep track of our incorrect guesses by returning them in a string (ex: `'def'`).
-- A `blanksWithCorrectGuesses()` function, to help us organize our underscores and guessed letters.
+- A `blanksWithCorrectGuesses()` function, to help us organize our dashes and guessed letters.
 - A `word()` function, to return the hidden word.
 
 **Examples:**
@@ -171,13 +180,13 @@ Use the following command to run the unit tests.
 **Terminal:**
 
 ```console
-flutter test test/unit_test.dart
+flutter test test/unit_tests.dart
 ```
 
 **In VS Code:**
 
-1. Open the test/unit_test.dart file
-2. While in the test/unit_test.dart file
+1. Open the test/unit_tests.dart file
+2. While in the test/unit_tests.dart file
 3. Select the Debug menu
 4. Click the Run Without Debuging option
 
@@ -190,13 +199,13 @@ Use the following command to run the integration tests.
 **Terminal:**
 
 ```console
-flutter test test/integration_test.dart
+flutter test test/integration_tests.dart
 ```
 
 **In VS Code:**
 
-1. Open the test/integration_test.dart file
-2. While in the test/integration_test.dart file
+1. Open the test/integration_tests.dart file
+2. While in the test/integration_tests.dart file
 3. Select the Debug menu
 4. Click the Run Without Debuging option
 
@@ -235,5 +244,3 @@ A pull request is when you request to merge the commits from one branch into ano
 Look at your PowerPoint slides for guidance on how to create Pull Requests.
 
 ### Start Your Project!
-
-

@@ -6,7 +6,8 @@ import 'gamescreen.dart';
 
 class LoseScreen extends StatelessWidget {
   late HangmanGame game;
-  //This should be modified to take in a HangmanGame
+  // 
+  // TODO: Modify the constructor to receive a HangmanGame object.
   LoseScreen({super.key});
 
   @override
@@ -17,7 +18,6 @@ class LoseScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            //Here we are giving the lose game button a key for use in our integration tests in test_driver/app_test.dart
             const Text("You Lose",
                 style: TextStyle(fontSize: 50), key: Key('lose-game-text')),
             const Padding(
@@ -29,22 +29,25 @@ class LoseScreen extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
             ),
+            // Here we reveal the hidden word to the user.
             Text('Your word was: ${game.word()}',
                 style: const TextStyle(fontSize: 25)),
             const Padding(
               padding: EdgeInsets.fromLTRB(0, 0, 0, 50),
             ),
             ElevatedButton(
-                //Here we are giving the new game button a key for use in our integration tests in test_driver/app_test.dart
+                // Here we are giving the new game button a key for use in our integration tests in test/integration_tests.dart
                 key: const Key('new-game-btn'),
                 child: const Text("New Game", style: TextStyle(fontSize: 25)),
                 onPressed: () async {
-                  //This setups a new game
+                  // This setups a new game
                   String word =
                       await HangmanGame.getStartingWord(areWeInIntegrationTest);
                   HangmanGame game = HangmanGame(word);
 
+                  //
                   //TODO: Push a GameScreen and give it the HangmanGame
+                  
                 })
           ],
         ),

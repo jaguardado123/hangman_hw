@@ -36,19 +36,21 @@ class MainScreen extends StatelessWidget {
               padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
             ),
             ElevatedButton(
-              //Here we are giving the new game button a key for use in our integration tests in test_driver/app_test.dart
+              
+              // Here we are giving the new game button a key for use in our integration tests in test/integration_tests.dart.
               key: const Key('new-game-button'),
               child: const Text("New Game",
-                  style: TextStyle(fontSize: 25),
-                  //Here we are giving the new game text field a key for use in our integration tests in test_driver/app_test.dart
-                  key: Key('new-game-text')),
+                  style: TextStyle(fontSize: 25)),
               onPressed: () async {
                 String word =
                     await HangmanGame.getStartingWord(areWeInIntegrationTest);
 
+                // Here we are starting the game by creating an instance of HangmanGame and passing a word to the constructor.
                 HangmanGame game = HangmanGame(word);
 
-                //TODO: Push a GameScreen and give it the HangmanGame
+                //
+                // TODO: Push a GameScreen and give it the HangmanGame object.
+                
               },
             )
           ],

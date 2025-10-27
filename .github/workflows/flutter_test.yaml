@@ -1,5 +1,5 @@
 # Name of the workflow
-name: Unit and Integration tests
+name: Unit and Integration Tests
 # This work flow is triggered when pull requests are opened or updated
 on: [pull_request]
 jobs:
@@ -11,5 +11,5 @@ jobs:
         with:
           channel: 'stable'
       - run: flutter pub get
-      - run: flutter test test/unit_test.dart
-      - run: flutter test test/integration_test.dart
+      - run: flutter test test/unit_tests.dart
+      - run: flutter test test/integration_tests.dart
